@@ -29,7 +29,7 @@ Route::get('entity/index', 'Api\EntityController@index');
 Route::delete('entity/{id}/delete', 'Api\EntityController@destroy');
 Route::put('entity/{id}/update', 'Api\EntityController@index');
 
-
+Route::post('post', 'Api\MessageController@store');
 
 
 Route::namespace('Api')->group(function(){

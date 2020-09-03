@@ -46,6 +46,17 @@ return [
             'path' => storage_path('logs/laravel.log'),
             'level' => 'debug',
         ],
+        // log channel for linebot
+        'lineBotLog' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/linebot.log'),
+            'level' => 'debug',
+        ],
+        'messageLog' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/message.log'),
+            'level' => 'debug',
+        ],
 
         'daily' => [
             'driver' => 'daily',
