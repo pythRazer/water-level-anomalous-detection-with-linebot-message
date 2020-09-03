@@ -13,7 +13,9 @@ class AddHypertable extends Migration
      */
     public function up()
     {
-        DB::statement("SELECT create_hypertable('water_levels', 'time');");
+
+
+        DB::statement("SELECT create_hypertable('water_level','time');");
 
     }
 

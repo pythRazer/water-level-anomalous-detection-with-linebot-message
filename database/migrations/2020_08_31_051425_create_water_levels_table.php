@@ -14,11 +14,22 @@ class CreateWaterLevelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('water_levels', function (Blueprint $table) {
-            // $table->id();
-            $table->string('water_level', 80)->nullable();
+        Schema::create('water_level', function (Blueprint $table) {
+            $table->unsignedInteger('id')->index()->autoIncrement();
+            $table->dropPrimary( 'id' );
 
-            $table->timestamp("time")->unique();
+            $table->uuid('uuid');
+
+            $table->dateTime('time', 6)->default(DB::raw('CLOCK_TIMESTAMP()'));
+            // $table->default(DB::raw('NOW()'));
+            // $table->string('water_level', 80)->nullable();
+
+            $table->float('water_level');
+
+
+            // $table->timestamp("time")->default(DB::raw('CLOCK_TIMESTAMP()'));
+
+
 
             $table->primary('time');
 
@@ -34,6 +45,6 @@ class CreateWaterLevelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('water_levels');
+        Schema::dropIfExists('water_level');
     }
 }

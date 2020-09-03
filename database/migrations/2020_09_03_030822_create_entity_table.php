@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableWithoutTimescale extends Migration
+class CreateEntityTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateTableWithoutTimescale extends Migration
      */
     public function up()
     {
-        Schema::create('table_without_timescale', function (Blueprint $table) {
-            $table->string('water_level', 80)->nullable();
-
-            $table->timestamp("time")->unique();
-
-            $table->primary('time');
+        Schema::create('entity', function (Blueprint $table) {
+            $table->id();
+            $table->uuid('uuid');
+            $table->string('model', 80);
+            $table->string('address', 80);
+            $table->timestamps();
         });
     }
 
@@ -29,6 +29,6 @@ class CreateTableWithoutTimescale extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_without_timescale');
+        Schema::dropIfExists('entity');
     }
 }
