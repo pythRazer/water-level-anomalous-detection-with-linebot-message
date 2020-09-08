@@ -20,6 +20,7 @@ class CreateWaterLevelsTable extends Migration
 
             $table->uuid('uuid');
 
+
             $table->dateTime('time', 6)->default(DB::raw('CLOCK_TIMESTAMP()'));
             // $table->default(DB::raw('NOW()'));
             // $table->string('water_level', 80)->nullable();
@@ -31,7 +32,11 @@ class CreateWaterLevelsTable extends Migration
 
 
 
+
+
             $table->primary('time');
+
+            $table->string('tags', 80)->nullable();
 
             // $table->timestamps();
 

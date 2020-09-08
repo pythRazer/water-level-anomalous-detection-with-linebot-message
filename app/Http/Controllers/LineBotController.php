@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
+use LINE\LINEBot;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use LINE\LINEBot;
-use LINE\LINEBot\Constant\HTTPHeader;
 use LINE\LINEBot\SignatureValidator;
+use LINE\LINEBot\Constant\HTTPHeader;
+use Illuminate\Support\Facades\Storage;
 use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
 use LINE\LINEBot\MessageBuilder\ImageMessageBuilder;
+
 use LINE\LINEBot\MessageBuilder\VideoMessageBuilder;
 use LINE\LINEBot\MessageBuilder\LocationMessageBuilder;
-
-use Exception;
 
 
 class LinebotController extends Controller
@@ -30,9 +31,14 @@ class LinebotController extends Controller
         $this->httpClient = new CurlHTTPClient(env("CHANNEL_TOKEN"));;
         $this->bot = new LINEBot($this->httpClient, ['channelSecret' => env("CHANNEL_SECRET")]);
     }
+    public function getAbnormalWaterLevel()
+    {
+
+    }
 
     public function pushMessage()
     {
+
 
         $textMessageBuilder = new TextMessageBuilder('hello');
         $response = $this->bot->pushMessage(env("USER_ID"), $textMessageBuilder);
@@ -41,14 +47,16 @@ class LinebotController extends Controller
         // echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
     }
 
-
+    // storage/abnormal_water_level_image/messageImage_1599530072011.jpg
     public function pushImage()
     {
 
+        $imageUrl = secure_asset('abnormal_water_level_image/messageImage_1599530072011.jpg');
         // Example from line official documentation site: https://developers.line.biz/en/reference/messaging-api/#send-push-message
+        $imageMessageBuilder = new ImageMessageBuilder($imageUrl, $imageUrl);
 
 
-        $imageMessageBuilder = new ImageMessageBuilder("https://upload.wikimedia.org/wikipedia/commons/d/de/POL_apple.jpg", "https://upload.wikimedia.org/wikipedia/commons/d/de/POL_apple.jpg");
+        // $imageMessageBuilder = new ImageMessageBuilder("https://upload.wikimedia.org/wikipedia/commons/d/de/POL_apple.jpg", "https://upload.wikimedia.org/wikipedia/commons/d/de/POL_apple.jpg");
         $response = $this->bot->pushMessage(env("USER_ID"), $imageMessageBuilder);
         return redirect()->back();
 

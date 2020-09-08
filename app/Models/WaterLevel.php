@@ -18,6 +18,7 @@ class WaterLevel extends Model
     protected $fillable = [
         'water_level',
         'uuid',
+        'tags',
     ];
     //
 }

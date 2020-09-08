@@ -24,6 +24,7 @@ Route::group(['prefix' => 'lineBot'], function(){
     Route::get('/pushMessage', 'LineBotController@pushMessage');
     Route::get('/pushImage', 'LineBotController@pushImage');
     Route::get('/pushLocation', 'LineBotController@pushLocation');
+    // Route::get('/getAbnormalWaterLevel', Line)
 
 
 });

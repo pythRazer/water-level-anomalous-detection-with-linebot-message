@@ -1,11 +1,13 @@
 <?php
+
 namespace App\Http\Controllers\Api;
-use App\Models\WaterLevel;
+use App\Models\Entity;
+// use App\Entity;
+use Webpatser\Uuid\Uuid;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Webpatser\Uuid\Uuid;
 
-class WaterLevelController extends Controller
+class AbnormalWaterLevelController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,7 @@ class WaterLevelController extends Controller
      */
     public function index()
     {
-        return WaterLevel::all();
+        return Entity::all();
         //
     }
 
@@ -26,10 +28,10 @@ class WaterLevelController extends Controller
      */
     public function store(Request $request)
     {
+        // automatic generate the unique uuid
+        // $uuid = Uuid::generate();
+        return Entity::create($request->only(['uuid', 'model','address']));
 
-        return WaterLevel::create($request->only(['uuid', 'water_level']));
-        // return($request->all());
-        //
     }
 
     /**
@@ -40,7 +42,7 @@ class WaterLevelController extends Controller
      */
     public function show($id)
     {
-        return WaterLevel::findOrFail($id);
+        return Entity::findOrFail($id);
         //
     }
 
@@ -54,32 +56,10 @@ class WaterLevelController extends Controller
     public function update(Request $request, $id)
     {
         $waterLevel = WaterLevel::findOrFail($id);
-        $waterLevel->update($request->only(['uuid', 'water_level', 'tags']));
+        $waterLevel->update($request->only(['uuid', 'model','address']));
         return $waterLevel;
-        //
-    }
-
-    public function postTestWave(){
 
     }
-
-    public function storeTags(Request $request)
-    {
-
-        return Tags::create($request->only(['start_time', 'end_time', 'tags']));
-        // return($request->all());
-        //
-    }
-
-
-    public function updateTags(Request $request, $id)
-    {
-        $tags = Tags::findOrFail($id);
-        $tags->update($request->only(['start_time', 'end_time', 'tags']));
-        return $tags;
-        //
-    }
-
 
     /**
      * Remove the specified resource from storage.
@@ -89,7 +69,8 @@ class WaterLevelController extends Controller
      */
     public function destroy($id)
     {
-        WaterLevel::findOrFail($id)->delete();
+        Entity::findOrFail($id)->delete();
         //
     }
 }
+

@@ -23,6 +23,8 @@ Route::post('waterlevel/store', 'Api\WaterLevelController@store');
 Route::get('waterlevel/index', 'Api\WaterLevelController@index');
 Route::delete('waterlevel/{id}/delete', 'Api\WaterLevelController@destroy');
 Route::put('waterlevel/{id}/update', 'Api\WaterLevelController@update');
+Route::put('waterlevel/{id}/updateTags', 'Api\WaterLevelController@updateTags');
+
 
 Route::post('entity/store', 'Api\EntityController@store');
 Route::get('entity/index', 'Api\EntityController@index');
@@ -30,6 +32,7 @@ Route::delete('entity/{id}/delete', 'Api\EntityController@destroy');
 Route::put('entity/{id}/update', 'Api\EntityController@index');
 
 Route::post('post', 'Api\MessageController@store');
+
 
 
 Route::namespace('Api')->group(function(){
