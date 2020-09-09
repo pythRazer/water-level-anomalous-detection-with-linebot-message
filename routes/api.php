@@ -1,6 +1,6 @@
 <?php
 
-
+// Route for all api
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +25,8 @@ Route::delete('waterlevel/{id}/delete', 'Api\WaterLevelController@destroy');
 Route::put('waterlevel/{id}/update', 'Api\WaterLevelController@update');
 Route::put('waterlevel/{id}/updateTags', 'Api\WaterLevelController@updateTags');
 
+Route::post('waterdetection/image', 'Api\ReceiveAnomolousImageController@store');
+Route::get('waterdetection/pushdetectedimage', 'Api\ReceiveAnomolousImageController@index');
 
 Route::post('entity/store', 'Api\EntityController@store');
 Route::get('entity/index', 'Api\EntityController@index');

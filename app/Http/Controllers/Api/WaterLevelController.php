@@ -1,5 +1,8 @@
 <?php
 namespace App\Http\Controllers\Api;
+
+// The api controller about store new record, updating, deleteing for water level
+
 use App\Models\WaterLevel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -59,9 +62,6 @@ class WaterLevelController extends Controller
         //
     }
 
-    public function postTestWave(){
-
-    }
 
     public function storeTags(Request $request)
     {

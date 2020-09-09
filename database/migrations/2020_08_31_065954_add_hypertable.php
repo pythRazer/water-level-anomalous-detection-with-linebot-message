@@ -14,7 +14,7 @@ class AddHypertable extends Migration
     public function up()
     {
 
-
+        // the query for transforming normal table to hypertable by the use of TimeScaleDB's function {create_hypertable}
         DB::statement("SELECT create_hypertable('water_level','time');");
 
     }

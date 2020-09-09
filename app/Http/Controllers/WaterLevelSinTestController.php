@@ -1,5 +1,11 @@
 <?php
 namespace App\Http\Controllers;
+
+
+// Just produce dummy sin wave for testing
+
+
+
 use App\Models\WaterLevel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

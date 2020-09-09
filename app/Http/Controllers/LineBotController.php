@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+// Linebot message controller, all about getting and sending messages
+
 
 use Exception;
 use LINE\LINEBot;
@@ -23,18 +25,12 @@ class LinebotController extends Controller
     protected $httpClient;
     protected $bot;
 
-    // $httpClient = new CurlHTTPClient(env("CHANNEL_TOKEN")); // TOKEN
-    // $bot = new LINEBot($httpClient, ['channelSecret' => env("CHANNEL_SECRET")]);// SECRET
-
     function __construct()
     {
         $this->httpClient = new CurlHTTPClient(env("CHANNEL_TOKEN"));;
         $this->bot = new LINEBot($this->httpClient, ['channelSecret' => env("CHANNEL_SECRET")]);
     }
-    public function getAbnormalWaterLevel()
-    {
 
-    }
 
     public function pushMessage()
     {
@@ -47,7 +43,6 @@ class LinebotController extends Controller
         // echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
     }
 
-    // storage/abnormal_water_level_image/messageImage_1599530072011.jpg
     public function pushImage()
     {
 
@@ -110,30 +105,8 @@ class LinebotController extends Controller
 
         $response = $bot->getMessageContent('<messageId>');
         echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
-        // if ($response->isSucceeded()) {
-        //     $tempfile = tmpfile();
-        //     fwrite($tempfile, $response->getRawBody());
-        // } else {
-        //     error_log($response->getHTTPStatus() . ' ' . $response->getRawBody());
-        // }
-
-        // $textMessageBuilder = new TextMessageBuilder('Reply');
-        // $response = $bot->replyMessage('<replyToken>', $textMessageBuilder);
-
-        // echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
     }
-
-    // public function manageMessage(){
-    //     $row_per_page = 10;
-    //     $MessagePaginate = UserInfo::OrderBy("created_at", 'desc')->paginate($row_per_page);
-    //     return view('');
-
-    // }
-
-
-
-
 
 
 }

@@ -13,13 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// homepage
 Route::get('/', function () {
     return view('welcome');
 });
 
 // Route::get('/test', testController@test);
 
-// LineBot push
+// LineBot message
 Route::group(['prefix' => 'lineBot'], function(){
     Route::get('/pushMessage', 'LineBotController@pushMessage');
     Route::get('/pushImage', 'LineBotController@pushImage');
@@ -31,10 +32,7 @@ Route::group(['prefix' => 'lineBot'], function(){
 
 Route::get('/waterLevelTest', 'WaterLevelSinTestController@store');
 
-// The editable table
-
-
-
+// The user info editable table
 Route::group(['prefix' => 'userinfo'], function(){
     Route::get('/','UserController@index');
     Route::post('/update','UserController@update');

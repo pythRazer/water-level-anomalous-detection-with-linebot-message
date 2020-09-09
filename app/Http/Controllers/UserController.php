@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 use App\Models\UserInfo;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-
+//The controller is about managing Line user name and their Line ID
 
 class UserController extends Controller {
 

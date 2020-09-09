@@ -1,6 +1,7 @@
 <?php
-
 namespace App\Http\Controllers\Api;
+
+// Storing incoming message sender's LineID, be used in the line user management system (creating emtpy name first, then edit the name value in the manage page)
 use App\Models\UserInfo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

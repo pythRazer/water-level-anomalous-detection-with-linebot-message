@@ -1,5 +1,7 @@
 <?php
 
+// not used for now
+// the table will be used for the line messages
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;

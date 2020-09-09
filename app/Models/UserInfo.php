@@ -1,5 +1,5 @@
 <?php
-
+// Line user info
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;

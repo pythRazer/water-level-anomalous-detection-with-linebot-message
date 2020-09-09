@@ -1,5 +1,6 @@
 <?php
 
+// a table for tagging the time when detect the abnormal water level
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;

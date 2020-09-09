@@ -1,5 +1,5 @@
 <?php
-
+// create entity (machines) table
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,6 +15,7 @@ class CreateEntityTable extends Migration
     {
         Schema::create('entity', function (Blueprint $table) {
             $table->id();
+            // entity's uuid
             $table->uuid('uuid');
             $table->string('model', 80);
             $table->string('address', 80);

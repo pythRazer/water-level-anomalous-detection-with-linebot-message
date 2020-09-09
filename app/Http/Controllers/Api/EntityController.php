@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Api;
+
+// The controller about the machines, storing by {id, uuid, model, address}
 use App\Models\Entity;
 // use App\Entity;
 use Webpatser\Uuid\Uuid;
